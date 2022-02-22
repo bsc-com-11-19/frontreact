@@ -1,4 +1,8 @@
+import ReactDOM from 'react-dom';
+//import { Link } from 'react-router-dom';
 import React,{useState} from 'react'
+import DownloadLink from "react-download-link";
+
 // Import the main component
 import { Viewer } from '@react-pdf-viewer/core'; // install this library
 // Plugins
@@ -7,9 +11,13 @@ import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout'; // insta
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 // Worker
-import { Worker } from '@react-pdf-viewer/core'; // install this library
+import { Worker } from '@react-pdf-viewer/core';
+
+// install this library
+
 
 export const App = () => {
+  
 
   // Create new plugin instance
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
@@ -43,8 +51,9 @@ export const App = () => {
       console.log('select your file');
     }
   }
+  
 
-  // form submit syntax
+  // form submit
   const handlePdfFileSubmit=(e)=>{
     e.preventDefault();
     if(pdfFile!==null){
@@ -82,9 +91,32 @@ export const App = () => {
       {/* if we dont have pdf or viewPdf state is null */}
       {!viewPdf&&<>No pdf file selected</>}
       </div>
+      
+      <DownloadLink 
+    label="Download" 
+    filename="fileName.txt"
+    exportFile={() => "Client side cache data here…"}
+/>
+<DownloadLink
+    label="Download with Promise"
+    filename="fileName.txt"
+    exportFile={() => Promise.resolve("cached data here …")}
+/>
 
+
+<DownloadLink
+label="Download"
+filename="fileName.txt"
+exportFile={() => "Client side cache data here…"}/>
     </div>
   )
 }
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+)
+
+
+
 
 export default App
