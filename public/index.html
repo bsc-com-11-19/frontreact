@@ -1,43 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head >     <meta charset="UTF-8">
+    <nav id="Nav" >
+        <ul>
+            <li><a href="default.asp">Home</a></li>
+            <li><a href="Comment.html" >Comment</a></li>
+            <li><a href="UploadFiles.html/" target="_blank">Upload</a></li>
+            <li><a href="contact.asp">Download</a></li>
+            <li><a href="About.html/"target="_blank">About</a></li>
+          </ul>
+    </nav>
+  <div id="root">
+    <link href="src\index.css" type="text/css" rel="stylesheet" />
+    <title>Student forum</title>
+   
+   
+</head>
+<body>
+  
+    <h1  style="color:red;"><b>STUDENT FORUM</b></h1> 
+    <hr>
+     
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <style>
+        background-color:blue
+    </style>
+    <form id="sign" >
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        
+<label for="name" class="title">Name:</label>
+<input  id="name" type="text" id="name" name="name" />
+</div>
+<div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+<label for="email" class="title">Email:</label>
+<input  id="email" type="email" id="email" name="email" />
+</div>
+<div>
+<label for="reg NO" class="title">Registration Number:</label>
+<br><br>
+<input type="text" id="reg NO" name="Registration Number" />
+</div>
+<div>
+<span class="title">Gender:</span>
+<input type="radio" name="gender" id="male"
+value="M" />
+<label for="male">Male</label>
+<input type="radio" name="gender" id="female"
+value="F" />
+<label for="female">Female</label><br />
+</div>
+<form>
+    <div>
+        <label for="Comment" class="title">Drop your comment here</label>
+        <br><br>
+        <input  style="    height:200px;width:300px;" type="text" id="comment" name="comment" />
+        </div>
+        <div>
+<div>
+    <br>
+
+    <button style=" color:rgb(20, 14, 78);  background-color: #af4c59; /* Green */
+  " id="submit">Login</button>
+  <br>
+  <br>
+</div>
+
+
+       
+   
+       
+       
+    </form>
+  
+    <script src="reactpart\src\index.js"></script>
+    
+</body>
 </html>
