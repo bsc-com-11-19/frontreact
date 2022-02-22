@@ -1,22 +1,94 @@
+
+body {
+  font-family: arial;
+  background-color:white;
+  margin:0;
+  text-align: center;
+  padding: 10px;
+  text-shadow: 2px 2px 3px #666666;
+  background:url(https://previews.123rf.com/images/ryanking999/ryanking9991906/ryanking999190600105/124093569-.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-transition: background-image 0.2s ease-in-out;
+  transition: background-image 0.2s ease-in-out;
+}
 *{
-  margin: 0;
+  box-sizing: border-box;
+}
+subm{
+  color:black;
+}
+nav{
+  background: #594848;
+  width:20%;
+  height:100%
+ 
+}
+ul{
+  margin:0px;
   padding: 0;
+  list-style:none;
+}
+li{
+  float:right;
+}
+nav a{
+  width:120px;
+  display:block;
+  text-decoration: none;
+  text-align: center;
+  background:#594848;
+  font-size: 17px;
   
+  padding:20px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white !important;
+
 }
 
-.pdf-container{
-  width: 100%;
-  height: 800px;
-  background-color: #e4e4e4;
-  overflow-y: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.error-msg{
-  width: 100%;
-  color: red;
-  font-size: 14px;
-  font-weight: 600;
-}
+  h1 {
+  color: rgb(255,255,255);}
+  h1{
+     text-align: center;
+  }
+  div.box {
+      height: 300px;
+      width: 300px;
+      background-color: #bbbbaa;}
+      input {
+          font-size: 120%;
+          color: #5a5854;
+          background-color:white;
+          border: 0px solid white;
+          border-radius: 50px;
+         
+          background-repeat: no-repeat;
+         
+       
+          margin-bottom: 10px;}
+          input#submit {
+              color: #444444;
+              text-shadow: 0px 1px 1px #ffffff;
+              border-bottom: 2px solid #b2b2b2;
+              background-color: #b9e4e3;
+          
+              background:
+              -moz-linear-gradient(top, #beeae9, #a8cfce);
+              background:
+              -o-linear-gradient(top, #beeae9, #a8cfce);
+              background:
+              -ms-linear-gradient(top, #beeae9, #a8cfce);}
+              input#submit:hover {
+              color: #333333;
+              border: 1px solid #a4a4a4;
+              border-top: 2px solid #b2b2b2;
+              background-color: #a0dbc4;
+            
+              background:
+              -moz-linear-gradient(top, #a8cfce, #beeae9);
+              background:
+              -o-linear-gradient(top, #a8cfce, #beeae9);
+              background:
+              -ms-linear-gradient(top, #a8cfce, #beeae9);}
