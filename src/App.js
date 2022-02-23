@@ -2,6 +2,8 @@ import ReactDOM from 'react-dom';
 //import { Link } from 'react-router-dom';
 import React,{useState} from 'react'
 import DownloadLink from "react-download-link";
+import login from '.pages/Login/login';
+import Route from 'react-dom';
 
 // Import the main component
 import { Viewer } from '@react-pdf-viewer/core'; // install this library
@@ -17,6 +19,7 @@ import { Worker } from '@react-pdf-viewer/core';
 
 
 export const App = () => {
+
   
 
   // Create new plugin instance
@@ -44,7 +47,7 @@ export const App = () => {
       }
       else{
         setPdfFile(null);
-        setPdfFileError('Please select valid pdf file');
+        setPdfFileError(alert('Please select valid pdf file'));
       }
     }
     else{
@@ -65,11 +68,16 @@ export const App = () => {
   }
 
   return (
+    
+   
     <div className='container'>
 
     <br></br>
     
       <form className='form-group' onSubmit={handlePdfFileSubmit}>
+      <switch  >
+      <Route exact path='/'component={login}/>
+    </switch>
         <input type="file" className='form-control'
           required onChange={handlePdfFileChange}
         />
@@ -97,17 +105,10 @@ export const App = () => {
     filename="fileName.txt"
     exportFile={() => "Client side cache data here…"}
 />
-<DownloadLink
-    label="Download with Promise"
-    filename="fileName.txt"
-    exportFile={() => Promise.resolve("cached data here …")}
-/>
 
 
-<DownloadLink
-label="Download"
-filename="fileName.txt"
-exportFile={() => "Client side cache data here…"}/>
+
+
     </div>
   )
 }

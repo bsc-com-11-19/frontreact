@@ -3,7 +3,7 @@ body {
     background-color:white;
     margin:0;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     text-shadow: 2px 2px 3px #666666;
     background:url(https://previews.123rf.com/images/ryanking999/ryanking9991906/ryanking999190600105/124093569-.jpg);
     -webkit-background-size: cover;
@@ -15,6 +15,7 @@ body {
 }
 *{
     box-sizing: border-box;
+    padding-left: 200px;
 }
 nav{
     background: #594848;
