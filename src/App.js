@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 //import { Link } from 'react-router-dom';
 import React,{useState} from 'react'
 import DownloadLink from "react-download-link";
-import login from '.pages/Login/login';
+import Login from './Pages/Login/Login';
 import Route from 'react-dom';
 
 // Import the main component
@@ -14,6 +14,7 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 // Worker
 import { Worker } from '@react-pdf-viewer/core';
+
 
 // install this library
 
@@ -75,9 +76,7 @@ export const App = () => {
     <br></br>
     
       <form className='form-group' onSubmit={handlePdfFileSubmit}>
-      <switch  >
-      <Route exact path='/'component={login}/>
-    </switch>
+      
         <input type="file" className='form-control'
           required onChange={handlePdfFileChange}
         />
@@ -99,13 +98,14 @@ export const App = () => {
       {/* if we dont have pdf or viewPdf state is null */}
       {!viewPdf&&<>No pdf file selected</>}
       </div>
-      
+     
+     
+    
       <DownloadLink 
     label="Download" 
     filename="fileName.txt"
     exportFile={() => "Client side cache data here…"}
 />
-
 
 
 
@@ -115,6 +115,8 @@ export const App = () => {
 ReactDOM.render(
   <App />,
   document.getElementById('root')
+  
+  
 )
 
 
