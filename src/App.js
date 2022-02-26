@@ -1,125 +1,51 @@
-import ReactDOM from 'react-dom';
-//import { Link } from 'react-router-dom';
-import React,{useState} from 'react'
-import DownloadLink from "react-download-link";
-import Login from './Pages/Login/Login';
-import Route from 'react-dom';
-
-// Import the main component
-import { Viewer } from '@react-pdf-viewer/core'; // install this library
-// Plugins
-import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout'; // install this library
-// Import the styles
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import '@react-pdf-viewer/default-layout/lib/styles/index.css';
-// Worker
-import { Worker } from '@react-pdf-viewer/core';
-
-
-// install this library
-
-
-export const App = () => {
-
-  
-
-  // Create new plugin instance
-  const defaultLayoutPluginInstance = defaultLayoutPlugin();
-  
-  // for onchange event
-  const [pdfFile, setPdfFile]=useState(null);
-  const [pdfFileError, setPdfFileError]=useState('');
-
-  // for submit event
-  const [viewPdf, setViewPdf]=useState(null);
-
-  // onchange event
-  const fileType=['application/pdf'];
-  const handlePdfFileChange=(e)=>{
-    let selectedFile=e.target.files[0];
-    if(selectedFile){
-      if(selectedFile&&fileType.includes(selectedFile.type)){
-        let reader = new FileReader();
-            reader.readAsDataURL(selectedFile);
-            reader.onloadend = (e) =>{
-              setPdfFile(e.target.result);
-              setPdfFileError('');
-            }
-      }
-      else{
-        setPdfFile(null);
-        setPdfFileError(alert('Please select valid pdf file'));
-      }
-    }
-    else{
-      console.log('select your file');
-    }
-  }
-  
-
-  // form submit
-  const handlePdfFileSubmit=(e)=>{
-    e.preventDefault();
-    if(pdfFile!==null){
-      setViewPdf(pdfFile);
-    }
-    else{
-      setViewPdf(null);
-    }
-  }
-
-  return (
-    
+import comment from './comment.js';
+import Navbar from './Navbar';
+import React from "react";
+import './App.css';
+class App extends React.Component {
    
-    <div className='container'>
-
-    <br></br>
-    
-      <form className='form-group' onSubmit={handlePdfFileSubmit}>
-      
-        <input type="file" className='form-control'
-          required onChange={handlePdfFileChange}
-        />
-        {pdfFileError&&<div className='error-msg'>{pdfFileError}</div>}
-        <br></br>
-        <button type="submit" className='btn btn-success btn-lg'>
-          UPLOAD
-        </button>
-      </form>
-      <br></br>
-      <h4>View PDF</h4>
-      <div className='pdf-container'>
-        {/* show pdf conditionally (if we have one)  */}
-        {viewPdf&&<><Worker workerUrl="https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.min.js">
-          <Viewer fileUrl={viewPdf}
-            plugins={[defaultLayoutPluginInstance]} />
-      </Worker></>}
-
-      {/* if we dont have pdf or viewPdf state is null */}
-      {!viewPdf&&<>No pdf file selected</>}
-      </div>
-     
-     
-    
-      <DownloadLink 
-    label="Download" 
-    filename="fileName.txt"
-    exportFile={() => "Client side cache data here…"}
-/>
-
-
-
-    </div>
-  )
+    // Constructor 
+    constructor(props) {
+        super(props);
+   
+        this.state = {
+            items: [],
+            DataisLoaded: false
+        };
+    }
+   
+    // ComponentDidMount is used to
+    // execute the code 
+    componentDidMount() {
+        fetch(
+"https://suggestion-forum.herokuapp.com/api")
+            .then((res) => res.json())
+            .then((json) => {
+                this.setState({
+                    items: json,
+                    DataisLoaded: true
+                });
+            })
+    }
+    render() {
+        const { DataisLoaded, items } = this.state;
+        if (!DataisLoaded) return <div>
+            <h1> Pleses wait some time.... </h1> </div> ;
+   
+        return (
+        <div className = "App">
+            <h1> Fetch data from an api in react </h1>  {
+                items.map((item) => ( 
+                <ol key = { item.id } >
+                    User_Name: { item.username }, 
+                    Full_Name: { item.name }, 
+                    User_Email: { item.email } 
+                    </ol>
+                ))
+            }
+        </div>
+    );
 }
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-  
-  
-)
-
-
-
-
-export default App
+}
+   
+export default App;
